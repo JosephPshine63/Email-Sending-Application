@@ -1,0 +1,16 @@
+# Database Configuration (H2)
+DB_DRIVER_CLASSNAME: org.h2.Driver
+DB_URL: jdbc:h2:mem:testdb  # In-memory H2 database named "testdb"
+DB_USERNAME: dev          # H2 default username
+DB_PASSWORD:             # H2 default password is empty
+
+# Server Configuration
+SERVER_PORT: 9000
+ACTIVE_PROFILE: dev
+
+# Email Configuration
+EMAIL_HOST: smtp.gmail.com
+EMAIL_PORT: 587
+EMAIL_ID: < your-email@gmail.it >
+EMAIL_PASSWORD: < your-password >
+VERIFY_EMAIL_HOST: http://localhost:${SERVER_PORT}

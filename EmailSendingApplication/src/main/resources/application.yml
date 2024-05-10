@@ -1,0 +1,44 @@
+spring:
+  profiles:
+    active: ${ACTIVE_PROFILE:dev}  # Set the active profile (default: dev)
+
+  datasource:
+    driver-classname: org.h2.Driver
+    url: jdbc:h2:mem:testdb  # In-memory H2 database named "testdb"
+    username: sa  # H2 default username
+    password:  # H2 default password is empty
+
+  jpa:
+    generate-ddl: true  # Generate database schema on startup (adjust if needed)
+    show-sql: true  # Log SQL statements
+    hibernate:
+      ddl-auto: update
+
+  mail:
+    host: ${EMAIL_HOST}  # Replace with your email server host
+    port: ${EMAIL_PORT}  # Replace with your email server port
+    username: ${EMAIL_ID}  # Replace with your email username
+    password: ${EMAIL_PASSWORD}  # Replace with your email password
+    default-encoding: UTF-8
+
+    properties:
+      mail:
+        mime:
+          charset: UTF-8
+        smtp:
+          writetimeout: 10000
+          connectiontimeout: 10000
+          timeout: 10000
+          auth: true
+          starttls:
+            enable: true
+            required: true
+
+    verify:  # Assuming this is for email verification
+      host: ${VERIFY_EMAIL_HOST}  # Replace with verification email server host (if applicable)
+
+  h2:
+    console:
+      enabled: true
+server:
+  port: ${SERVER_PORT:8080}  # Set the server port (default: 8080)
